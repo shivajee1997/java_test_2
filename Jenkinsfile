@@ -15,6 +15,7 @@ pipeline {
             steps {
                 dir("${workspace}") {
                 sh 'mvn -B -DskipTests clean package'
+                    sh 'ls -l'
                 }
             }
         }
