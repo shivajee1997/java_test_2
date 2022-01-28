@@ -15,7 +15,15 @@ pipeline {
             steps {
                 dir("${workspace}") {
                 sh 'mvn -B -DskipTests clean package'
-                sh 'ls -l'
+                
+                }
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                dir("${workspace}") {
+                sh 'mvn test'
+                
                 }
             }
         }
