@@ -11,7 +11,7 @@ pipeline {
                 echo "M2_HOME = /opt/maven"
             }
         }
-        stage('Application Build') {
+        stage('Build') {
             steps {
                 dir("${workspace}") {
                 sh 'mvn -B -DskipTests clean package'
@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        stage('unit test') {
+        stage('test') {
             steps {
                 dir("${workspace}") {
                 sh 'mvn test'
@@ -46,7 +46,7 @@ pipeline {
                 
             }
         }
-        stage('Eks Deploy') {
+        stage('Dev Deploy') {
             steps {
                 
                     withAWS(credentials: 'Personla', region: 'us-east-1') {
