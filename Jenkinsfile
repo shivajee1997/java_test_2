@@ -23,6 +23,7 @@ pipeline {
             steps {
                 dir("${workspace}") {
                 sh 'mvn test'
+                 sh 'pwd'
                  
                 }
             }
